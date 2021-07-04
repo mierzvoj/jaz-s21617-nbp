@@ -25,8 +25,8 @@ public class SpringFoxConfig {
     }
 
     private ApiInfo getApiInfo() {
-        return new ApiInfo("NBP Service Api", "", "", "",
-                new Contact("NBP phone no", "www.nbp.pl", ""), "" + "123", "", Collections.emptyList());
+        return new ApiInfo("NBP Service Api", "", "", "free to use",
+                new Contact("NBP phone no", "www.nbp.pl", "444@rrr"), "" + "123", "", Collections.emptyList());
 
     }
 }

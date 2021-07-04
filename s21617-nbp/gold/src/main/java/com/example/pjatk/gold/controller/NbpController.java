@@ -23,15 +23,14 @@ public class NbpController {
 
     @ApiOperation(value = "get gold prices", response = GoldValue.class, notes = "This method will return gold price calculations")
 
-    @GetMapping(value = "/nbp/{dateStart}/{dateEnd}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{dateStart}/{dateEnd}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<GoldValue> calculateValues(
-            @ApiParam(name = "gold only",
+            @ApiParam(name = "dateStart",
                     type = "date",
                     value = "input dates",
                     required = true,
                     defaultValue = "2021-07-01")
-
-            @PathVariable Date dateStart, Date dateEnd) {
+            @RequestParam Date dateStart, @RequestParam Date dateEnd) {
         return ResponseEntity.ok(goldService.calculateValues(dateStart, dateEnd));
     }
 }
