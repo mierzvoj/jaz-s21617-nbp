@@ -15,7 +15,7 @@ import java.util.Collections;
 @Configuration
 public class SpringFoxConfig {
     @Bean
-    public Docket api(){
+    public Docket api() {
         return new Docket(DocumentationType.OAS_30)
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
@@ -25,8 +25,8 @@ public class SpringFoxConfig {
     }
 
     private ApiInfo getApiInfo() {
-        return new ApiInfo("NBP Service Api","", "","",
-                new Contact("NBP phone no", "www.nbp.pl", ""),"" + "123","", Collections.emptyList());
+        return new ApiInfo("NBP Service Api", "", "", "",
+                new Contact("NBP phone no", "www.nbp.pl", ""), "" + "123", "", Collections.emptyList());
 
     }
 }

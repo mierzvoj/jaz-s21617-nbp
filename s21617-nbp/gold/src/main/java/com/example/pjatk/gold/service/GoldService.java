@@ -21,16 +21,16 @@ public class GoldService {
         this.nbpRepository = nbpRepository;
     }
 
-    public GoldValue calculateValues(Date dateStart, Date dateEnd ){
+    public GoldValue calculateValues(Date dateStart, Date dateEnd) {
         String url = "http://api.nbp.pl/api/cenyzlota/" + dateStart + "/" + dateEnd;
         Root root = restTemplate.getForObject(url, Root.class);
         double average = calculate(root.getRates());
         GoldValue goldValue = getGoldValue(dateStart, dateEnd, average);
-        return  nbpRepository.save(goldValue);
+        return nbpRepository.save(goldValue);
 
     }
 
-    private GoldValue getGoldValue(Date dateStart, Date dateEnd, double calculate){
+    private GoldValue getGoldValue(Date dateStart, Date dateEnd, double calculate) {
         GoldValue goldValue = new GoldValue();
         goldValue.setValue(calculate);
         goldValue.setDateStart(dateStart);
@@ -40,9 +40,7 @@ public class GoldService {
     }
 
 
-
-
-    public double calculate(List<Rate> rateList){
+    public double calculate(List<Rate> rateList) {
         return rateList.stream()
                 .mapToDouble(Rate::getPrice)
                 .average()

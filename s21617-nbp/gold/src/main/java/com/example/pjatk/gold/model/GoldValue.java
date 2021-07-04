@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 
-@Entity(name="data")
+@Entity(name = "data")
 public class GoldValue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +19,6 @@ public class GoldValue {
     private Date dateEnd;
     private double value;
     private LocalDateTime createdAt;
-
-
-
 
 
     public GoldValue() {
